@@ -3,20 +3,45 @@ name = "amld2025"
 version = "0.1.0"
 description = "Workshop: Leveraging Large Language Models for Intelligent Claim Handling: A Hands-On Industry Case Study"
 readme = "README.md"
-requires-python = ">=3.12"
+requires-python = ">=3.11,<3.12"
 dependencies = [
-    "backoff>=2.2.1",
-    "jupyter>=1.1.1",
-    "neo4j>=5.28.1",
-    "numpy>=2.2.2",
-    "openai>=1.61.1",
-    "pandas>=2.2.3",
-    "pydantic>=2.10.6",
-    "python-dotenv>=1.0.1",
+  "backoff>=2.2.1",
+  "jupyter>=1.1.1",
+  "neo4j>=5.28.1",
+  "numpy>=1.24.0,<2.0.0",
+  "openai>=1.61.1",
+  "pandas>=2.2.3",
+  "pydantic>=2.10.6",
+  "python-dotenv>=1.0.1",
+  "matplotlib>=3.10.0",
+  "pillow>=11.1.0",
+  "pydantic>=2.10.6",
+  "scikit-learn>=1.6.1",
+  "seaborn>=0.13.2",
+  "torch<=2.4.0; platform_machine=='x86_64' and platform_system=='Darwin'",        # Intel Mac
+  "torch>=2.5.1; platform_machine=='arm64' and platform_system=='Darwin'",         # Apple Silicon
+  "torch>=2.5.1; sys_platform=='linux' or sys_platform=='win32'",                  # Linux/Windows
+  "torchvision<=0.15.2; platform_machine=='x86_64' and platform_system=='Darwin'", # Intel Mac
+  "torchvision>=0.20.1; platform_machine=='arm64' and platform_system=='Darwin'",  # Apple Silicon
+  "torchvision>=0.20.1; sys_platform=='linux' or sys_platform=='win32'",           # Linux/Windows
+  "unsloth>=2025.2.5; platform_machine=='arm64' and platform_system=='Darwin'",    # Only on Apple Silicon
+  "unsloth>=2025.2.5; sys_platform=='linux' or sys_platform=='win32'",             # Only on Linux/Windows
+  "vllm>=0.7.2; platform_machine=='arm64' and platform_system=='Darwin'",          # Only on Apple Silicon
+  "vllm>=0.7.2; sys_platform=='linux' or sys_platform=='win32'",                   # Only on Linux/Windows
+]
+
+[[tool.uv.index]]
+name = "pytorch-cu124"
+url = "https://download.pytorch.org/whl/cu124"
+explicit = true
+
+[tool.uv.sources]
+torch = [
+  { index = "pytorch-cu124", marker = "sys_platform == 'linux' or sys_platform == 'win32'" },
+]
+torchvision = [
+  { index = "pytorch-cu124", marker = "sys_platform == 'linux' or sys_platform == 'win32'" },
 ]
 
 [dependency-groups]
-dev = [
-    "mypy>=1.15.0",
-    "ruff>=0.9.5",
-]
+dev = ["mypy>=1.15.0", "ruff>=0.9.5"]

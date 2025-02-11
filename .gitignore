@@ -5,3 +5,5 @@ cache_claims/
 cache_embeddings/
 cache_graphs/
 .env
+outputs
+_unsloth*
