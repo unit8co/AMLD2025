@@ -3,3 +3,7 @@
 __pycache__
 outputs
 _unsloth*
+cache_claims/
+cache_embeddings/
+cache_graphs/
+.env
