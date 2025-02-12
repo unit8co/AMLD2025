@@ -7,3 +7,10 @@ cache_graphs/
 .env
 outputs
 _unsloth*
+<<<<<<< HEAD
+=======
+cache_claims/
+cache_embeddings/
+cache_graphs/
+.env
+>>>>>>> 933cb9995bd7f152e2044d306d16ca908bf88ed9

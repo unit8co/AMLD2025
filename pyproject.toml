@@ -5,6 +5,7 @@ description = "Workshop: Leveraging Large Language Models for Intelligent Claim 
 readme = "README.md"
 requires-python = ">=3.11,<3.12"
 dependencies = [
+<<<<<<< HEAD
   "backoff>=2.2.1",
   "jupyter>=1.1.1",
   "neo4j>=5.28.1",
@@ -28,6 +29,24 @@ dependencies = [
   "unsloth>=2025.2.5; sys_platform=='linux' or sys_platform=='win32'",             # Only on Linux/Windows
   "vllm>=0.7.2; platform_machine=='arm64' and platform_system=='Darwin'",          # Only on Apple Silicon
   "vllm>=0.7.2; sys_platform=='linux' or sys_platform=='win32'",                   # Only on Linux/Windows
+=======
+    "backoff>=2.2.1",
+    "jupyter>=1.1.1",
+    "matplotlib>=3.10.0",
+    "pillow>=11.1.0",
+    "pydantic>=2.10.6",
+    "scikit-learn>=1.6.1",
+    "seaborn>=0.13.2",
+    "torch>=2.5.1",
+    "torchvision>=0.20.1",
+    "unsloth>=2025.2.5",
+    "vllm>=0.7.2",
+    "neo4j>=5.28.1",
+    "numpy>=1.24.0,<2.0.0",
+    "openai>=1.61.1",
+    "pandas>=2.2.3",
+    "python-dotenv>=1.0.1",
+>>>>>>> 933cb9995bd7f152e2044d306d16ca908bf88ed9
 ]
 
 [[tool.uv.index]]
@@ -41,6 +60,7 @@ torch = [
 ]
 torchvision = [
   { index = "pytorch-cu124", marker = "sys_platform == 'linux' or sys_platform == 'win32'" },
+
 ]
 
 [dependency-groups]
