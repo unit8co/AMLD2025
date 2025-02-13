@@ -56,7 +56,7 @@ uv pip install -r requirements.txt
 2. Open `.env` and add your settings:
    ```env
    OPENAI_API_KEY=your-api-key-here
-   OPENAI_MODEL=gpt-4-turbo-preview
+   OPENAI_MODEL=gpt-4o
    OPENAI_EMBEDDING_MODEL=text-embedding-3-small
    ```
 
@@ -93,11 +93,6 @@ python -m graph_rag.cli batch --claims_path PATH_TO_CLAIMS_FILE --verbose
 ```
 This is useful to run the benchmark.
 
-Need help? Try:
-```bash
-python -m graph_rag.cli --help
-python -m graph_rag.cli <command> --help
-```
 
 ## How Answers Are Formatted 📋
 
