@@ -1,6 +1,7 @@
 import argparse
 import logging
 import sys
+import os
 
 from main import main as ingest_main
 from retrieve import main as retrieve_main
@@ -26,6 +27,14 @@ def setup_logging(verbose: bool):
         handler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))
         debug.addHandler(handler)
         debug.propagate = False
+
+def validate_file_path(file_path: str) -> str:
+    """Validate that a file exists and is readable. Returns absolute path."""
+    abs_path = os.path.abspath(file_path)
+    logging.info(f"Validating file path:\n  Input path: {file_path}\n  Absolute path: {abs_path}")
+    if not (os.path.isfile(abs_path) and os.access(abs_path, os.R_OK)):
+        raise FileNotFoundError(f"Claims file not found or not readable: {file_path}")
+    return abs_path
 
 def main():
     parser = argparse.ArgumentParser(
@@ -60,12 +69,31 @@ def main():
     setup_logging(getattr(args, 'verbose', False))
     
     try:
+        # Validate inputs before executing commands
+        if args.command == 'batch':
+            if not args.claims_path:
+                raise ValueError("--claims_path is required for batch command")
+            # Convert to absolute path and validate
+            claims_path = validate_file_path(args.claims_path)
+            # Log the working directory and final path
+            logging.info(f"Current working directory: {os.getcwd()}")
+            logging.info(f"Using claims path: {claims_path}")
+        
+        elif args.command == 'query':
+            if not args.query:
+                raise ValueError("--query is required for query command")
+        
+        # Execute commands
         if args.command == 'ingest':
             ingest_main()
         elif args.command == 'query':
             retrieve_main(query=args.query, verbose=args.verbose)
         elif args.command == 'batch':
-            solve_claims_main(claims_path=args.claims_path, resume=args.resume, verbose=args.verbose)
+            solve_claims_main(claims_path=claims_path, resume=args.resume, verbose=args.verbose)
+            
+    except (ValueError, FileNotFoundError) as e:
+        logging.error(str(e))
+        sys.exit(1)
     except Exception as e:
         logging.error(f"Error executing {args.command} command: {str(e)}")
         sys.exit(1)

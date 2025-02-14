@@ -7,6 +7,7 @@ from tqdm import tqdm
 from datetime import datetime
 from pathlib import Path
 import numpy as np
+import pandas as pd
 
 from config.settings import URI, AUTH, DATABASE_
 from database.memgraph_client import MemgraphClient
@@ -170,10 +171,17 @@ def main(claims_path: str, resume: bool = False, verbose: bool = False):
         output_dir.mkdir(parents=True, exist_ok=True)
         progress_logger.info(f"Created new experiment directory: {output_dir}")
 
-    # Load claims and ground truth
+    # Load claims directly from provided path
     with open(claims_path) as f:
         claims = json.load(f)
-    ground_truth = load_ground_truth()
+    
+    # Load ground truth from the same directory as claims file
+    ground_truth_path = Path(claims_path).parent / "claims_dataset_v2_manual.json"
+    try:
+        ground_truth = pd.read_json(ground_truth_path)
+    except (FileNotFoundError, json.JSONDecodeError) as e:
+        progress_logger.warning(f"Ground truth file not found or invalid: {ground_truth_path}")
+        ground_truth = None
 
     # Find starting point
     start_idx = load_last_processed_index(output_dir) + 1 if resume else 0
