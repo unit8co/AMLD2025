@@ -21,7 +21,7 @@ This workshop provides a hands-on exploration of applying Large Language Models 
 - Problem statement and challenges
 - Dataset introduction and exploration
 
-### 2. (Retrieval-Augmented Generation (RAG))[graph_rag/README.md]
+### 2. Retrieval-Augmented Generation (RAG)
 - Understanding RAG architecture
 - Building a RAG pipeline for claim coverage verification
 - Implementation considerations and results analysis
