@@ -18,16 +18,16 @@ dependencies = [
   "pydantic>=2.10.6",
   "scikit-learn>=1.6.1",
   "seaborn>=0.13.2",
-  "torch<=2.4.0; platform_machine=='x86_64' and platform_system=='Darwin'",        # Intel Mac
-  "torch>=2.5.1; platform_machine=='arm64' and platform_system=='Darwin'",         # Apple Silicon
-  "torch>=2.5.1; sys_platform=='linux' or sys_platform=='win32'",                  # Linux/Windows
+  "torch<=2.4.0; platform_machine=='x86_64' and platform_system=='Darwin'", # Intel Mac
+  "torch>=2.5.1; platform_machine=='arm64' and platform_system=='Darwin'", # Apple Silicon
+  "torch>=2.5.1; sys_platform=='linux' or sys_platform=='win32'", # Linux/Windows
   "torchvision<=0.15.2; platform_machine=='x86_64' and platform_system=='Darwin'", # Intel Mac
-  "torchvision>=0.20.1; platform_machine=='arm64' and platform_system=='Darwin'",  # Apple Silicon
-  "torchvision>=0.20.1; sys_platform=='linux' or sys_platform=='win32'",           # Linux/Windows
-  "unsloth>=2025.2.5; platform_machine=='arm64' and platform_system=='Darwin'",    # Only on Apple Silicon
-  "unsloth>=2025.2.5; sys_platform=='linux' or sys_platform=='win32'",             # Only on Linux/Windows
-  "vllm>=0.7.2; platform_machine=='arm64' and platform_system=='Darwin'",          # Only on Apple Silicon
-  "vllm>=0.7.2; sys_platform=='linux' or sys_platform=='win32'",                   # Only on Linux/Windows
+  "torchvision>=0.20.1; platform_machine=='arm64' and platform_system=='Darwin'", # Apple Silicon
+  "torchvision>=0.20.1; sys_platform=='linux' or sys_platform=='win32'", # Linux/Windows
+  "unsloth>=2025.2.5; platform_machine=='arm64' and platform_system=='Darwin'", # Only on Apple Silicon
+  "unsloth>=2025.2.5; sys_platform=='linux' or sys_platform=='win32'", # Only on Linux/Windows
+  "vllm>=0.7.2; platform_machine=='arm64' and platform_system=='Darwin'", # Only on Apple Silicon
+  "vllm>=0.7.2; sys_platform=='linux' or sys_platform=='win32'", # Only on Linux/Windows
   "diffusers>=0.32.2",
 ]
 
