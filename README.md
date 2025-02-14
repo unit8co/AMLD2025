@@ -2,6 +2,9 @@
 
 ## Workshop: Leveraging Large Language Models for Intelligent Claim Handling: A Hands-On Industry Case Study
 
+## OpenAI Key
+https://kpaste.infomaniak.com/c83bqQskwM9numfe9XRWdBKg4_5HOFt0#8T98f8oQzNyxgBTnNecjDG3iYq4NUJD1CHNCLJzDYZnW
+
 ## Overview
 
 This workshop provides a hands-on exploration of applying Large Language Models (LLMs) to automate and enhance insurance claim handling processes. Participants will learn different approaches to build intelligent claim processing systems using state-of-the-art NLP techniques.
